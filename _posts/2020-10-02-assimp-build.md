@@ -31,6 +31,8 @@ But I couldn't find any guide online, just a stackoverflow answer with some step
 
 2. Create a build directory in the assimp directory, open the CMake-gui and point correct source code and build location, and correct Visual Studio version in it. Clicking configure will show options. Make sure to select `ASSIMP_BUILD_ZLIB` ~~and `BUILD_SHARED_LIBS`~~. Unselect `BUILD_SHARED_LIBS` option in cmake options to make static library 
 
+    _Note_: You have to select correct "Platform for generator" on generating config in cmake (or the architecture for which you are building: Win32, x64, etc). Default (as per CMake 3.21.1) is x64. If your project arch and assimp arch differ, you will get errors like: `error LNK2001: unresolved external symbol`
+
 3. ~~A Visual Studio solution will be created in the build folder. In the properties of `assimp` and `zlib`, change "Configuration Type" to "Static Library", and in Advanced tab, change Target File Extension to ".lib". In `UpdateAssimpLibsDebugSymbolsAndDLLS`, change all ".dll" to ".lib" in Properties -> Build Events -> Post-build Events~~ 
 
     This is automatically done when you unselect shared libs option (I had wrong understanding of that flag, which was cleared by [official build docs](https://github.com/assimp/assimp/blob/master/Build.md#cmake-build-options))
