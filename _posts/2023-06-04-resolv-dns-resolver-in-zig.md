@@ -5,6 +5,8 @@ date:   2023-06-04 12:01:55 +0530
 categories: update
 ---
 
+_Updated on_: 2023-06-10
+
 ## My getting started with Zig
 
 `All your codebase are belong to us.`
@@ -31,7 +33,7 @@ The current resolver supports only querying A record, and pretty-prints A, NS an
 
 ### comptime
 
-Even though I have used `comptime` very less, it did feel very different from other compile time constructs from other language (like templates in cpp). Generic functions are very similar to writing normal functions.
+Even though I have used `comptime` very little, it did feel very different from other compile time constructs from other language (like templates in cpp). Generic functions are very similar to writing normal functions.
 
 I am yet to explore runtime-polyphormism and generic types, which should involve more comptime stuff to try.
 
@@ -66,6 +68,8 @@ Though thinking that this is language support for still under development langua
 ### Missing functionalities in stdlib
 
 Some functionalities (like UDP network for my case) are missing from the stdlib. Though this is understandable for a developing language.
+
+_Update_: While high level APIs are not available for UDP, we can use socket from [`std.os.socket`](https://github.com/ziglang/zig/blob/master/lib/std/os.zig#L3334) for using UDP (Thanks [@tauoverpi](https://github.com/tauoverpi) for pointing this out!). So we do have thin wrappers over "standard" functionalities in stdlib, just high level APIs are not present currently
 
 ### (gotcha) Struct custom formatting
 Since I didn't go through chapter 2 from ziglearn (mistake), I didn't know about struct formatting. I saw `std.net.<type>` implemented `format` function, and tried replicating that for my structs for easy printing, but it following implmentation lead to program crashing (with exit code 1) without any reason on why it is crashing:
